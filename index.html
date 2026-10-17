@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRIVATE & BOUND | D/C +18</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Montserrat:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; user-select: none; -webkit-tap-highlight-color: transparent; }
+        
+        body {
+            background-color: #030108;
+            color: #ececec;
+            font-family: 'Montserrat', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            overflow-x: hidden;
+            background-image: radial-gradient(circle at center, #1a0526 0%, #030108 85%);
+        }
+
+        .header { text-align: center; margin-bottom: 25px; }
+
+        .brand {
+            font-family: 'Cinzel', serif;
+            font-size: 26px;
+            font-weight: 900;
+            letter-spacing: 5px;
+            background: linear-gradient(135deg, #d8b4fe, #9333ea, #e9d5ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+            text-shadow: 0 0 20px rgba(147, 51, 234, 0.4);
+        }
+
+        .sub-brand {
+            font-size: 10px;
+            letter-spacing: 4px;
+            color: #c084fc;
+            margin-top: 6px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .container { width: 100%; max-width: 460px; }
+
+        .card {
+            background: linear-gradient(145deg, #12051c, #05010a);
+            border: 1px solid #3b0764;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.95), 0 0 30px rgba(147, 51, 234, 0.25);
+            border-radius: 20px;
+            padding: 30px 22px;
+            text-align: center;
+            position: relative;
+        }
+
+        .screen { display: none; }
+        .screen.active { display: block; animation: fadeIn 0.4s ease-out; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .title {
+            font-family: 'Cinzel', serif;
+            font-size: 18px;
+            color: #e9d5ff;
+            margin-bottom: 15px;
+            letter-spacing: 2px;
+        }
+
+        .input-group { margin-bottom: 15px; text-align: left; }
+        .input-group label { display: block; font-size: 10px; letter-spacing: 2px; color: #a855f7; margin-bottom: 6px; text-transform: uppercase; }
+        .input-group input {
+            width: 100%; padding: 12px 15px; background: #180726; border: 1px solid #581c87;
+            border-radius: 10px; color: #fff; font-family: 'Montserrat', sans-serif; font-size: 13px; outline: none;
+        }
+
+        .btn {
+            background: linear-gradient(135deg, #4c1d95, #7e22ce);
+            border: 1px solid #a855f7; color: #fff; font-family: 'Montserrat', sans-serif;
+            font-size: 12px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase;
+            padding: 15px 20px; width: 100%; border-radius: 25px; cursor: pointer; transition: 0.3s;
+            box-shadow: 0 5px 20px rgba(126, 34, 206, 0.5); margin-top: 10px;
+        }
+
+        .btn:active { transform: scale(0.98); }
+
+        .turn-indicator {
+            font-size: 12px; letter-spacing: 2px; color: #c084fc; text-transform: uppercase;
+            padding: 10px; border: 1px solid rgba(192, 132, 252, 0.4); border-radius: 20px;
+            margin-bottom: 20px; background: rgba(147, 51, 234, 0.12); font-weight: 700;
+        }
+
+        .choice-btns { display: flex; gap: 12px; margin-bottom: 20px; }
+        .btn-d { background: linear-gradient(135deg, #1e1b4b, #312e81); border-color: #6366f1; }
+        .btn-c { background: linear-gradient(135deg, #581c87, #7e22ce); border-color: #c084fc; }
+
+        .content-box {
+            min-height: 140px; display: flex; flex-direction: column; align-items: center;
+            justify-content: center; margin-bottom: 15px; padding: 20px; background: rgba(15, 3, 25, 0.85);
+            border-radius: 14px; border: 1px solid #3b0764;
+        }
+
+        .type-tag { font-size: 10px; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; font-weight: 800; }
+        .tag-d { color: #818cf8; }
+        .tag-c { color: #e879f9; }
+
+        .text-display { font-size: 15px; font-weight: 400; line-height: 1.6; color: #fff; }
+
+        .pass-btn {
+            background: transparent; border: 1px solid #581c87; color: #c084fc; font-size: 10px;
+            letter-spacing: 1px; padding: 8px 16px; border-radius: 15px; cursor: pointer; margin-top: 10px;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="brand">PRIVATE & BOUND</div>
+        <div class="sub-brand">UZAKTAN HARD D/C +18</div>
+    </div>
+
+    <div class="container">
+        <div class="card">
+            
+            <!-- STEP 1: SETUP -->
+            <div id="screen1" class="screen active">
+                <div class="title">SÖZLEŞME ÖNCESİ</div>
+                <div class="input-group">
+                    <label>1. OYUNCU (Dominant / Yöneten)</label>
+                    <input type="text" id="p1Name" placeholder="Örn: Ahmet">
+                </div>
+                <div class="input-group">
+                    <label>2. OYUNCU (Partner)</label>
+                    <input type="text" id="p2Name" placeholder="Örn: Melis">
+                </div>
+                <button class="btn" onclick="startGame()">MÜHÜRÜ ONAYLA & BAŞLAT</button>
+            </div>
+
+            <!-- STEP 2: GAMEPLAY -->
+            <div id="screen2" class="screen">
+                <div id="turnText" class="turn-indicator">SIRA: OYUNCU</div>
+
+                <div class="choice-btns">
+                    <button class="btn btn-d" onclick="pickCard('D')">DOĞRULUK</button>
+                    <button class="btn btn-c" onclick="pickCard('C')">CESARET</button>
+                </div>
+
+                <div class="content-box">
+                    <div id="typeTag" class="type-tag">KART SEÇİN</div>
+                    <div id="cardText" class="text-display">Sırası gelen taraf Doğruluk veya Cesaret butonuna bassın. Sınırları zorlamaya hazır olun.</div>
+                </div>
+
+                <button class="btn" onclick="nextTurn()">SIRAYI DEVRET</button>
+                <button class="pass-btn" onclick="passTask()">PAS GEÇ (CEZA / İTAAT BORÇLAN)</button>
+            </div>
+
+        </div>
+    </div>
+
+    <script>
+        let p1 = "1. Oyuncu";
+        let p2 = "2. Oyuncu";
+        let currentTurn = 1;
+
+        // DOĞRULUK: Sert, BDSM, Dominasyon ve İtaat Soruları
+        const dataD = [
+            "Bana tamamen teslim olduğun bir anda, ellerini bağlayıp kontrolü tamamen almama izin verir misin? Hangi pozisyonda çaresiz kalmak istersin?",
+            "Baskın tarafın tamamen ben olduğum bir gecede, vereceğim sert bir cezaya mı yoksa mühürlü bir ödüle mi itaat etmek istersin?",
+            "Gözlerin bağlıyken ve kımıldaman yasakken teninde gezdireceğim soğuk bir nesne mi, yoksa ritmik hafif darbeler mi seni daha çok çıldırtır?",
+            "Benimle ilgili kurduğun en karanlık, sınırları en çok zorlayan BDSM fantezini sansürsüzce anlat.",
+            "Buluştuğumuzda 'Hayır' kelimesini tamamen yasaklasam ve sadece 'Emredersin' demene izin versem, buna ne kadar süre dayanabilirsin?",
+            "Aramızdaki mesafeye rağmen şu an sadece sesimle seni yönlendirsem ve kendinle baş başa kalmanı emretsem, bunu duraksamadan yapar mısın?",
+            "Dizlerinin üzerine çöküp sadece gözlerimin içine bakarak benden bir şey talep etmen gerekseydi, bu ne olurdu?",
+            "Vücudunda kontrolü kaybettiğin ve tamamen bana ait olduğunu hissettiğin o en kırılgan/sert an hangisiydi?",
+            "Bir gece boyunca üzerindeki tüm kontrolü bana devretme fikri seni ne kadar tahrik ediyor?",
+            "Bana sormaya hiç cesaret edemediğin ama yapmam için yanıp tutuştuğun o sert fantezi ne?",
+            "Birlikte olduğumuzda seni hafifçe nefessiz bıraktığım veya baskı kurduğum o anlarda aklından ne geçiyor?",
+            "Bana 'Sahibim / Dominantım' şeklinde hitap etmen gerekseydi, bunu söylerken ne hissederdin?"
+        ];
+
+        // CESARET: Sert Komutlar, Kışkırtıcı Ses Kayıtları, İtaat Görevleri ve Nadir Görsel Aksiyonlar
+        const dataC = [
+            "Bana hemen 15 saniyelik sert ve arzulu bir ses kaydı at: 'Sadece sana aitim ve kontrol sende' cümlesini kısık sesle ve fısıldayarak söyle.",
+            "Bana ses kaydı gönder: Kulağıma fısıldar gibi, yanına geldiğimde beni nasıl karşılayacağını ve bana nasıl itaat edeceğini anlat.",
+            "Aksiyon Görevi: Telefonu kenara koy, 30 saniye boyunca gözlerini kapat, ellerini başının arkasında birleştir ve beni düşünerek bekle. Sonra 'İtaat ettim' mesajı at.",
+            "Bana anlık bir ses kaydı at: Nefes tonunu bozmadan bana en kışkırtıcı şekilde bir emir ver veya teslimiyetini fısılda.",
+            "Mesaj Görevi: Buluşacağımız ilk gece için bana 'Sınır tanımayan 3 kuralını' yazılı olarak gönder.",
+            "Nadir Cesaret: Üzerindeki kıyafetin/parçanın en kışkırtıcı detayını anlatan anlık bir ipucu fotoğrafı veya çok detaylı bir mesaj gönder.",
+            "Bana 10 saniyelik bir ses kaydı at: İsmi mi 3 kez, her defasında daha kısık ve arzulu bir tonla söyle.",
+            "Sert İtaat Görevi: Önümüzdeki 2 tur boyunca vereceğim her cevaba veya mesaja 'Evet Sahibim / Emredersin' diyerek başlamak zorundasın.",
+            "Ses Kaydı Görevi: Beni kışkırtacak ve aklımı başımdan alacak en cüretkar fantezini tek nefeste sesli olarak anlatıp gönder.",
+            "Nadir Cesaret: Görüntülü aramayı aç veya 5 saniyelik bir video at: Sadece gözlerinin içine bakıp dilini dudaklarında gezdir ve kapat.",
+            "Mesaj Görevi: Şu an tam olarak neye ihtiyacın olduğunu hiçbir sansür uygulamadan 3 kelimeyle yaz."
+        ];
+
+        function startGame() {
+            const v1 = document.getElementById('p1Name').value.trim();
+            const v2 = document.getElementById('p2Name').value.trim();
+            if(v1) p1 = v1;
+            if(v2) p2 = v2;
+
+            document.getElementById('screen1').classList.remove('active');
+            document.getElementById('screen2').classList.add('active');
+            updateTurnUI();
+        }
+
+        function updateTurnUI() {
+            const activeName = (currentTurn === 1) ? p1 : p2;
+            document.getElementById('turnText').innerText = "SIRA: " + activeName.toUpperCase();
+            document.getElementById('typeTag').innerText = "KART SEÇİN";
+            document.getElementById('typeTag').className = "type-tag";
+            document.getElementById('cardText').innerText = activeName + ", Doğruluk mu yoksa Cesaret mi? Sınırlarını seç.";
+        }
+
+        function pickCard(type) {
+            const list = (type === 'D') ? dataD : dataC;
+            const randomItem = list[Math.floor(Math.random() * list.length)];
+
+            if(type === 'D') {
+                document.getElementById('typeTag').innerText = "DOĞRULUK (SERT İTİRAF)";
+                document.getElementById('typeTag').className = "type-tag tag-d";
+            } else {
+                document.getElementById('typeTag').innerText = "CESARET (HARD GÖREV / SES / İTAAT)";
+                document.getElementById('typeTag').className = "type-tag tag-c";
+            }
+
+            document.getElementById('cardText').innerText = randomItem;
+        }
+
+        function nextTurn() {
+            currentTurn = (currentTurn === 1) ? 2 : 1;
+            updateTurnUI();
+        }
+
+        function passTask() {
+            const activeName = (currentTurn === 1) ? p1 : p2;
+            const otherName = (currentTurn === 1) ? p2 : p1;
+            alert(activeName + " pas geçti ve itaat kuralını ihlal etti! " + otherName + " ona anında uygulanacak sert bir ceza/emir verme hakkı kazandı.");
+            nextTurn();
+        }
+    </script>
+</body>
+</html>
